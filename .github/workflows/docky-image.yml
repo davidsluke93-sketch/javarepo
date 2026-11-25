@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: HighRoller Docker Build and Push
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag lukedmonkey/my-app2:latest
+        run: docker build -t lukedmonkey/my-app2:latest .
 
       - name: Push the Docker image
         run: docker push lukedmonkey/my-app2:latest
